@@ -41,6 +41,9 @@ NODE_ENV=production
 JWT_SECRET=replace_with_a_long_random_secret
 JWT_EXPIRES_IN=1d
 USE_LOCAL_DB=false
+AUTO_MIGRATE=true
+ADMIN_EMAIL=admin@hospital.test
+ADMIN_PASSWORD=password123
 FRONTEND_URL=https://your-vercel-app.vercel.app
 ```
 
@@ -50,19 +53,9 @@ Railway MySQL normally provides variables such as `MYSQLHOST`, `MYSQLPORT`, `MYS
 
 ## 3. Create Database Tables
 
-Open Railway MySQL query console or connect with a MySQL client, then run:
+Set `AUTO_MIGRATE=true` on the Railway backend service. On startup, the backend will create the required tables and seed the admin user automatically.
 
-```sql
-SOURCE backend/database/schema.sql;
-```
-
-If the console does not support `SOURCE`, paste the contents of `backend/database/schema.sql` directly.
-
-Then seed the admin user from Railway shell or locally with Railway variables:
-
-```bash
-npm run backend:seed
-```
+You can also create tables manually by running the SQL in `backend/database/schema.sql`.
 
 Demo login:
 
