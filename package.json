@@ -1,0 +1,18 @@
+{
+  "name": "hepatitis-disease-detection-and-diagnosis-software",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "install:all": "npm install",
+    "backend:dev": "npm --workspace backend run dev",
+    "backend:start": "npm --workspace backend run start",
+    "backend:seed": "npm --workspace backend run seed",
+    "backend:test": "npm --workspace backend run test",
+    "frontend:dev": "npm --workspace frontend run dev",
+    "frontend:build": "npm --workspace frontend run build"
+  }
+}
