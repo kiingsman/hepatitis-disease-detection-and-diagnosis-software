@@ -21,7 +21,11 @@ function Login() {
       localStorage.setItem('user', JSON.stringify(data.user));
       navigate('/');
     } catch (err) {
-      setError(err.response?.data?.message || 'Unable to log in');
+      if (err.response?.status === 503) {
+        setError('Database unavailable. Please contact the system administrator.');
+      } else {
+        setError(err.response?.data?.message || 'Unable to log in');
+      }
     } finally {
       setLoading(false);
     }
